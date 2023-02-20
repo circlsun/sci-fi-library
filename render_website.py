@@ -8,7 +8,8 @@ from more_itertools import chunked
 def rebuild():
     with open("json/books_description.json", "r") as file:
         books = json.load(file)
-    books_inline = list(chunked(books, 2))
+    columns = 2
+    books_in_row = list(chunked(books, columns))
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -16,7 +17,7 @@ def rebuild():
     )
 
     template = env.get_template('template.html')
-    rendered_page = template.render(books_inline=books_inline)
+    rendered_page = template.render(books_in_row=books_in_row)
 
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
