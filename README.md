@@ -12,7 +12,7 @@ Then use `pip` (or `pip3`, if there is a conflict with Python2) to install depen
 pip install -r requirements.txt
 ```
 
-### Usage main.py
+### Usage parse_tululu_all.py
 
 Just run the python script `main.py` with the following concole command:
 ```
