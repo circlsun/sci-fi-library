@@ -143,9 +143,6 @@ books_description.json
 
 # mkdocs documentation
 /site
-/books
-/json
-/pages
 
 
 # mypy
