@@ -36,7 +36,7 @@ def download_txt(url, filename, folder='books'):
     return f'{folder}/{name}.txt'
 
 
-def download_image(url, name, folder='images'):
+def download_image(url, name, folder='books'):
     """Функция для скачивания картинок"""
 
     response = requests.get(url)
