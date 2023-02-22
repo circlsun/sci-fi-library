@@ -24,13 +24,14 @@ def rebuild():
 
     books_in_row = list(chunked(books, columns))
     books_in_pages = list(chunked(books_in_row, pages))
-    count_pages = len(books_in_pages)
+    total_pages = len(books_in_pages)
 
     template = env.get_template('template.html')
     for num, books_in_page in enumerate(books_in_pages):
         rendered_page = template.render(
             books_in_page=books_in_page,
-            count_pages=count_pages
+            total_pages=total_pages,
+            current_page=num + 1
         )
 
         with open(f'pages/index{num + 1}.html', 'w', encoding="utf8") as file:
