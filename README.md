@@ -2,6 +2,8 @@
 
 App for parsing info and downloading books and their covers from of [Tululu](https://tululu.org/).
 
+An example of the resulting library is available at [Sci-Fi-Library](https://tululu.org/https://circlsun.github.io/sci-fi-library/pages/index1.html)
+
 ### How to install
 
 Python3 should be already installed. 
