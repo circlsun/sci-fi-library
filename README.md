@@ -106,7 +106,7 @@ python parse_tululu_category.py --start_page 500 --end_page 600
 ```
 python render_website.py
 ```
-4. Open any  `index(1..10).html` from the `pages` folder with any browser.
+4. Open any `index(1..10).html` from the `pages` folder or [here](http://127.0.0.1:5500/) with any browser
 
 
 ### Project Goals
