@@ -17,10 +17,10 @@ def rebuild():
         books_description = json.load(file)
 
     columns = 2
-    books_per_page = 10
+    book_cards_per_page = 10
 
     book_cards_in_row = list(chunked(books_description, columns))
-    book_cards_in_pages = list(chunked(book_cards_in_row, books_per_page))
+    book_cards_in_pages = list(chunked(book_cards_in_row, book_cards_per_page))
     pages_amount = len(book_cards_in_pages)
 
     template = env.get_template('template.html')
