@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from pathvalidate import sanitize_filename
 
 
-def download_txt(url, filename, folder='books'):
+def download_txt(url, filename, folder='media'):
     '''Функция для скачивания текстовых файлов.
 
     Args:
@@ -28,26 +28,28 @@ def download_txt(url, filename, folder='books'):
     response.raise_for_status()
     check_for_redirect(response)
 
-    name = f"{sanitize_filename(filename)}"
-    path = f'{os.getcwd()}/{folder}/{name}.txt'
-    with open(path, 'wb') as file:
+    name = f'{sanitize_filename(filename)}'
+    path = f'{os.getcwd()}/{folder}/{"books"}'
+    os.makedirs(path, exist_ok=True)
+    with open(f'{path}/{name}.txt', 'wb') as file:
         file.write(response.content)
 
-    return f'{folder}/{name}.txt'
+    return f'{folder}/{"books"}/{name}.txt'
 
 
-def download_image(url, name, folder='books'):
+def download_image(url, name, folder='media'):
     '''Функция для скачивания картинок'''
 
     response = requests.get(url)
     response.raise_for_status()
     check_for_redirect(response)
 
-    path = f'{os.getcwd()}/{folder}/{name}'
-    with open(path, 'wb') as file:
+    path = f'{os.getcwd()}/{folder}/{"images"}'
+    os.makedirs(path, exist_ok=True)
+    with open(f'{path}/{name}', 'wb') as file:
         file.write(response.content)
 
-    return f'{folder}/{name}'
+    return f'{folder}/{"images"}/{name}'
 
 
 def check_for_redirect(response):
@@ -84,9 +86,6 @@ def main():
     logging.basicConfig(filename='app.log', filemode='w')
     logging.info('This will get logged to a file')
     logger.setLevel(level=logging.INFO)
-
-    os.makedirs('books', exist_ok=True)
-    os.makedirs('images', exist_ok=True)
 
     parser = argparse.ArgumentParser(description='Save books from tululu.org')
     parser.add_argument('start', help='Starting book', type=int, default=1)

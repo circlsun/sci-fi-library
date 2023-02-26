@@ -14,7 +14,7 @@ from parse_tululu_all import (check_for_redirect, download_image, download_txt,
 
 def check_connection(timeout):
     try:
-        requests.head("http://www.google.com/", timeout=timeout)
+        requests.head('http://www.google.com/', timeout=timeout)
         return True
     except requests.ConnectionError:
         return False
@@ -35,7 +35,7 @@ def get_urls(start_id, end_id):
             continue
 
         except requests.ConnectionError:
-            print("The internet connection is down!")
+            print('The internet connection is down!')
             timeout = 5
             while True:
                 if check_connection(timeout):
@@ -77,7 +77,7 @@ def main():
         '--json_path', default='json',
         help='Path for <.json> file')
     parser.add_argument(
-        '--dest_folder', default='books',
+        '--dest_folder', default='media',
         help='Path for text and images files')
 
     args = parser.parse_args()
@@ -119,12 +119,12 @@ def main():
                     book_description['image_url'], image_name, books_folder)
 
             book_description = {
-                    "title": book_description["title"],
-                    "author": book_description["author"],
-                    "img_src": image_path,
-                    "book_path": text_path,
-                    "comments": book_description["comments"],
-                    "genres": book_description["ganres"]
+                    'title': book_description['title'],
+                    'author': book_description['author'],
+                    'img_src': image_path,
+                    'book_path': text_path,
+                    'comments': book_description['comments'],
+                    'genres': book_description['ganres']
             }
 
         except requests.HTTPError as error:
@@ -136,8 +136,8 @@ def main():
             continue
 
         except requests.ConnectionError:
-            logger.info("The internet connection is down!")
-            print("The internet connection is down!")
+            logger.info('The internet connection is down!')
+            print('The internet connection is down!')
             timeout = 5
             while True:
                 if check_connection(timeout):
@@ -152,5 +152,5 @@ def main():
             json.dump(books_description, jsnfile, ensure_ascii=False, indent=2)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
