@@ -11,7 +11,7 @@ from pathvalidate import sanitize_filename
 
 
 def download_txt(url, filename, folder='books'):
-    """Функция для скачивания текстовых файлов.
+    '''Функция для скачивания текстовых файлов.
 
     Args:
         url (str): Cсылка на текст, который хочется скачать.
@@ -20,7 +20,7 @@ def download_txt(url, filename, folder='books'):
 
     Returns:
         str: Путь до файла, куда сохранён текст.
-    """
+    '''
     params = {
         'id': filename.split('/')[0],
     }
@@ -37,7 +37,7 @@ def download_txt(url, filename, folder='books'):
 
 
 def download_image(url, name, folder='books'):
-    """Функция для скачивания картинок"""
+    '''Функция для скачивания картинок'''
 
     response = requests.get(url)
     response.raise_for_status()
@@ -56,7 +56,7 @@ def check_for_redirect(response):
 
 
 def parse_book_page(response):
-    """Функция для получения информации о книге"""
+    '''Функция для получения информации о книге'''
 
     soup = BeautifulSoup(response.text, 'lxml')
     title, author = soup.select_one('h1').text.split('::')
@@ -114,10 +114,10 @@ def main():
             download_txt(text_url, book_name)
             download_image(book_description['image_url'], image_name)
             print(textwrap.dedent(f'''
-                    Заголовок: {book_description["title"]}
-                    Автор: {book_description["author"]}
-                    Жанры: {book_description["ganres"]}
-                    Комменты: {book_description["comments"]}
+                    Заголовок: {book_description['title']}
+                    Автор: {book_description['author']}
+                    Жанры: {book_description['ganres']}
+                    Комменты: {book_description['comments']}
                 '''))
         except requests.HTTPError as error:
             print(textwrap.dedent(f'''
@@ -133,5 +133,5 @@ def main():
             continue
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

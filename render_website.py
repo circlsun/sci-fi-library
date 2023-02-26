@@ -15,7 +15,7 @@ def rebuild():
         autoescape=select_autoescape(['html', 'xml'])
     )
 
-    with open("json/books_description.json", "r") as file:
+    with open('json/books_description.json', 'r') as file:
         books = json.load(file)
 
     columns = 2
@@ -34,7 +34,7 @@ def rebuild():
             current_page=book_index
         )
 
-        with open(f'pages/index{book_index}.html', 'w', encoding="utf8") as file:
+        with open(f'pages/index{book_index}.html', 'w', encoding='utf8') as file:
             file.write(rendered_page)
 
 
