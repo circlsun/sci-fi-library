@@ -2,9 +2,15 @@
 
 App for parsing info and downloading books and their covers from of [Tululu](https://tululu.org/).
 
-An example of the resulting library is available at [Sci-Fi-Library](https://circlsun.github.io/sci-fi-library/pages/index1.html)
+## Usage online
 
-### How to install
+Online-library is available at GitHub Pages website: [Sci-Fi-Library](https://circlsun.github.io/sci-fi-library/pages/index1.html)
+
+## Usage offline
+
+Download this repository to your computer and open any  `index(1..10).html` from the `pages` folder with any browser. Have fun reading!
+
+## How to install
 
 Python3 should be already installed. 
 Then use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
@@ -24,7 +30,7 @@ Where argument <30> is the starting book, and <40> is the last book to download.
 ```
 python main.py 50 53
 ```
-Books from <50> to <53> will be downloaded to the 'books' folder and their covers to the 'images' folder.
+Books from <50> to <53> will be downloaded to the 'media/books' folder and their covers to the 'medai/images' folder.
 And in console the result will be: 
 ```
 Заголовок: Этика перераспределения
@@ -89,6 +95,18 @@ Link of the book: https://tululu.org/b44562/
 Link of the book: https://tululu.org/b59280/
 Link of the book: https://tululu.org/b59440/
 ```
+### If you want to create your own website
+
+1. Delete `json`, `pages` and `media` derectories from your repo.
+2. Run parse_tululu_category.py:
+```
+python parse_tululu_category.py --start_page 500 --end_page 600
+```
+3. Run render_website.py:
+```
+python render_website.py
+```
+
 
 ### Project Goals
 
