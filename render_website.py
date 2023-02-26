@@ -27,14 +27,14 @@ def rebuild():
     total_pages = len(books_in_pages)
 
     template = env.get_template('template.html')
-    for num, books_in_page in enumerate(books_in_pages):
+    for book_index, books_in_page in enumerate(books_in_pages):
         rendered_page = template.render(
             books_in_page=books_in_page,
             total_pages=total_pages,
-            current_page=num + 1
+            current_page=book_index + 1
         )
 
-        with open(f'pages/index{num + 1}.html', 'w', encoding="utf8") as file:
+        with open(f'pages/index{book_index + 1}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
 
 
