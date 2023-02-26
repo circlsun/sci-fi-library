@@ -8,7 +8,7 @@ Online-library is available at GitHub Pages website: [Sci-Fi-Library](https://ci
 
 ## Usage offline
 
-Download this repository to your computer and open any  `index(1..10).html` from the `pages` folder with any browser. Have fun reading!
+Download this repository to your computer and open any  `index(1..10).html` from the `pages` folder or [here](http://127.0.0.1:5500/) with any browser and click button `Читать`. Have fun reading!
 
 ## How to install
 
@@ -106,7 +106,7 @@ python parse_tululu_category.py --start_page 500 --end_page 600
 ```
 python render_website.py
 ```
-4. Open any `index(1..10).html` from the `pages` folder or [here](http://127.0.0.1:5500/) with any browser
+4. Open any `index(1..10).html` from the `pages` folder or [here](http://127.0.0.1:5500/) with any browser and click button `Читать`.
 
 
 ### Project Goals
