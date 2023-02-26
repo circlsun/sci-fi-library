@@ -18,22 +18,22 @@ def rebuild():
 
     columns = 2
     books_per_page = 10
-    pagination_size = ceil((len(books_description) / columns) / books_per_page)
 
     book_cards_in_row = list(chunked(books_description, columns))
-    book_cards_in_pages = list(chunked(book_cards_in_row, pagination_size))
+    book_cards_in_pages = list(chunked(book_cards_in_row, books_per_page))
     pages_amount = len(book_cards_in_pages)
 
     template = env.get_template('template.html')
-    for book_index, books_in_page in enumerate(book_cards_in_pages, start=1):
+    for page_index, page in enumerate(book_cards_in_pages, start=1):
         rendered_page = template.render(
-            books_in_page=books_in_page,
+            books_in_page=page,
             pages_amount=pages_amount,
-            current_page=book_index
+            current_page=page_index
         )
 
-        with open(f'pages/index{book_index}.html', 'w', encoding='utf8') as file:
+        with open(f'pages/index{page_index}.html', 'w', encoding='utf8') as file:
             file.write(rendered_page)
+
 
 def main():
     os.makedirs('pages', exist_ok=True)
@@ -41,6 +41,7 @@ def main():
     server = Server()
     server.watch('template.html', rebuild)
     server.serve(root='.')
+
 
 if __name__ == '__main__':
     main()
