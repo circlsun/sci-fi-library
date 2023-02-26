@@ -1,14 +1,15 @@
-import os
-import json
-import textwrap
 import argparse
+import json
 import logging
+import os
+import textwrap
 from urllib.parse import urljoin, urlsplit
 
 import requests
 from bs4 import BeautifulSoup
-from parse_tululu_all import check_for_redirect, download_txt
-from parse_tululu_all import download_image, parse_book_page
+
+from parse_tululu_all import (check_for_redirect, download_image, download_txt,
+                              parse_book_page)
 
 
 def check_connection(timeout):

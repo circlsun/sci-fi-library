@@ -1,13 +1,13 @@
-import os
-import time
-import textwrap
 import argparse
 import logging
+import os
+import textwrap
+import time
 from urllib.parse import urljoin, urlsplit
 
 import requests
-from pathvalidate import sanitize_filename
 from bs4 import BeautifulSoup
+from pathvalidate import sanitize_filename
 
 
 def download_txt(url, filename, folder='books'):
