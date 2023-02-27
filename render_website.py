@@ -13,7 +13,7 @@ def rebuild():
         autoescape=select_autoescape(['html', 'xml'])
     )
 
-    with open('json/books_description.json', 'r') as file:
+    with open('json/books_description.json', 'r', encoding="utf8") as file:
         books_description = json.load(file)
 
     columns = 2
